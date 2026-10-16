@@ -1,0 +1,1476 @@
+[
+  {
+    "sku": "PIPE-001",
+    "name": "GI Pipe 15mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "15",
+      "class": "A"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 15mm Light",
+      "GI Pipe 1/2 inch Class A"
+    ]
+  },
+  {
+    "sku": "PIPE-002",
+    "name": "GI Pipe 15mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "15",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 15mm Medium",
+      "GI Pipe 1/2 inch Class B"
+    ]
+  },
+  {
+    "sku": "PIPE-003",
+    "name": "GI Pipe 20mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "20",
+      "class": "A"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 20mm Light",
+      "GI Pipe 3/4 inch Class A"
+    ]
+  },
+  {
+    "sku": "PIPE-004",
+    "name": "GI Pipe 20mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "20",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 20mm Medium",
+      "GI Pipe 3/4 inch Class B"
+    ]
+  },
+  {
+    "sku": "PIPE-005",
+    "name": "GI Pipe 25mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "25",
+      "class": "A"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 25mm Light",
+      "GI Pipe 1 inch Class A"
+    ]
+  },
+  {
+    "sku": "PIPE-006",
+    "name": "GI Pipe 25mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "25",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 25mm Medium",
+      "GI Pipe 1 inch Class B"
+    ]
+  },
+  {
+    "sku": "PIPE-007",
+    "name": "GI Pipe 32mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "32",
+      "class": "A"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 32mm Light",
+      "GI Pipe 1-1/4 inch Class A"
+    ]
+  },
+  {
+    "sku": "PIPE-008",
+    "name": "GI Pipe 32mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "32",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 32mm Medium",
+      "GI Pipe 1-1/4 inch Class B"
+    ]
+  },
+  {
+    "sku": "PIPE-009",
+    "name": "GI Pipe 40mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "40",
+      "class": "A"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 40mm Light",
+      "GI Pipe 1-1/2 inch Class A"
+    ]
+  },
+  {
+    "sku": "PIPE-010",
+    "name": "GI Pipe 40mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "40",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 40mm Medium",
+      "GI Pipe 1-1/2 inch Class B"
+    ]
+  },
+  {
+    "sku": "PIPE-011",
+    "name": "GI Pipe 50mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "50",
+      "class": "A"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 50mm Light",
+      "GI Pipe 2 inch Class A"
+    ]
+  },
+  {
+    "sku": "PIPE-012",
+    "name": "GI Pipe 50mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "50",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 50mm Medium",
+      "GI Pipe 2 inch Class B"
+    ]
+  },
+  {
+    "sku": "PIPE-013",
+    "name": "GI Pipe 80mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "80",
+      "class": "A"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 80mm Light",
+      "GI Pipe 3 inch Class A"
+    ]
+  },
+  {
+    "sku": "PIPE-014",
+    "name": "GI Pipe 80mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "80",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 80mm Medium",
+      "GI Pipe 3 inch Class B"
+    ]
+  },
+  {
+    "sku": "PIPE-015",
+    "name": "GI Pipe 100mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "100",
+      "class": "A"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 100mm Light",
+      "GI Pipe 4 inch Class A"
+    ]
+  },
+  {
+    "sku": "PIPE-016",
+    "name": "GI Pipe 100mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "100",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe 100mm Medium",
+      "GI Pipe 4 inch Class B"
+    ]
+  },
+  {
+    "sku": "PIPE-017",
+    "name": "PVC Pipe 20mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "20",
+      "class": "A"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 20mm Class A",
+      "Rigid PVC Pipe 20mm"
+    ]
+  },
+  {
+    "sku": "PIPE-018",
+    "name": "PVC Pipe 20mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "20",
+      "class": "B"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 20mm Class B",
+      "Rigid PVC Pipe 20mm"
+    ]
+  },
+  {
+    "sku": "PIPE-019",
+    "name": "PVC Pipe 25mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "25",
+      "class": "A"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 25mm Class A",
+      "Rigid PVC Pipe 25mm"
+    ]
+  },
+  {
+    "sku": "PIPE-020",
+    "name": "PVC Pipe 25mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "25",
+      "class": "B"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 25mm Class B",
+      "Rigid PVC Pipe 25mm"
+    ]
+  },
+  {
+    "sku": "PIPE-021",
+    "name": "PVC Pipe 32mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "32",
+      "class": "A"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 32mm Class A",
+      "Rigid PVC Pipe 32mm"
+    ]
+  },
+  {
+    "sku": "PIPE-022",
+    "name": "PVC Pipe 32mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "32",
+      "class": "B"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 32mm Class B",
+      "Rigid PVC Pipe 32mm"
+    ]
+  },
+  {
+    "sku": "PIPE-023",
+    "name": "PVC Pipe 40mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "40",
+      "class": "A"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 40mm Class A",
+      "Rigid PVC Pipe 40mm"
+    ]
+  },
+  {
+    "sku": "PIPE-024",
+    "name": "PVC Pipe 40mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "40",
+      "class": "B"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 40mm Class B",
+      "Rigid PVC Pipe 40mm"
+    ]
+  },
+  {
+    "sku": "PIPE-025",
+    "name": "PVC Pipe 50mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "50",
+      "class": "A"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 50mm Class A",
+      "Rigid PVC Pipe 50mm"
+    ]
+  },
+  {
+    "sku": "PIPE-026",
+    "name": "PVC Pipe 50mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "50",
+      "class": "B"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 50mm Class B",
+      "Rigid PVC Pipe 50mm"
+    ]
+  },
+  {
+    "sku": "PIPE-027",
+    "name": "PVC Pipe 75mm Class A",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "75",
+      "class": "A"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 75mm Class A",
+      "Rigid PVC Pipe 75mm"
+    ]
+  },
+  {
+    "sku": "PIPE-028",
+    "name": "PVC Pipe 75mm Class B",
+    "category": "pipe",
+    "uom": "mtr",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "75",
+      "class": "B"
+    },
+    "aliases": [
+      "UPVC Conduit Pipe 75mm Class B",
+      "Rigid PVC Pipe 75mm"
+    ]
+  },
+  {
+    "sku": "BOLT-001",
+    "name": "MS Hex Bolt M6x25 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M6",
+      "length_mm": "25",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M6*25 Gr 4.6",
+      "MS Hexagon Head Bolt M6 x 25mm"
+    ]
+  },
+  {
+    "sku": "BOLT-002",
+    "name": "MS Hex Bolt M6x40 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M6",
+      "length_mm": "40",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M6*40 Gr 4.6",
+      "MS Hexagon Head Bolt M6 x 40mm"
+    ]
+  },
+  {
+    "sku": "BOLT-003",
+    "name": "MS Hex Bolt M8x30 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M8",
+      "length_mm": "30",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M8*30 Gr 4.6",
+      "MS Hexagon Head Bolt M8 x 30mm"
+    ]
+  },
+  {
+    "sku": "BOLT-004",
+    "name": "MS Hex Bolt M8x50 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M8",
+      "length_mm": "50",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M8*50 Gr 4.6",
+      "MS Hexagon Head Bolt M8 x 50mm"
+    ]
+  },
+  {
+    "sku": "BOLT-005",
+    "name": "MS Hex Bolt M10x40 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M10",
+      "length_mm": "40",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M10*40 Gr 4.6",
+      "MS Hexagon Head Bolt M10 x 40mm"
+    ]
+  },
+  {
+    "sku": "BOLT-006",
+    "name": "MS Hex Bolt M10x60 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M10",
+      "length_mm": "60",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M10*60 Gr 4.6",
+      "MS Hexagon Head Bolt M10 x 60mm"
+    ]
+  },
+  {
+    "sku": "BOLT-007",
+    "name": "MS Hex Bolt M12x50 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M12",
+      "length_mm": "50",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M12*50 Gr 4.6",
+      "MS Hexagon Head Bolt M12 x 50mm"
+    ]
+  },
+  {
+    "sku": "BOLT-008",
+    "name": "MS Hex Bolt M12x75 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M12",
+      "length_mm": "75",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M12*75 Gr 4.6",
+      "MS Hexagon Head Bolt M12 x 75mm"
+    ]
+  },
+  {
+    "sku": "BOLT-009",
+    "name": "MS Hex Bolt M16x60 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M16",
+      "length_mm": "60",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M16*60 Gr 4.6",
+      "MS Hexagon Head Bolt M16 x 60mm"
+    ]
+  },
+  {
+    "sku": "BOLT-010",
+    "name": "MS Hex Bolt M16x100 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M16",
+      "length_mm": "100",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M16*100 Gr 4.6",
+      "MS Hexagon Head Bolt M16 x 100mm"
+    ]
+  },
+  {
+    "sku": "BOLT-011",
+    "name": "MS Hex Bolt M20x75 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M20",
+      "length_mm": "75",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M20*75 Gr 4.6",
+      "MS Hexagon Head Bolt M20 x 75mm"
+    ]
+  },
+  {
+    "sku": "BOLT-012",
+    "name": "MS Hex Bolt M20x100 Grade 4.6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M20",
+      "length_mm": "100",
+      "grade": "4.6"
+    },
+    "aliases": [
+      "Mild Steel Hex Bolt M20*100 Gr 4.6",
+      "MS Hexagon Head Bolt M20 x 100mm"
+    ]
+  },
+  {
+    "sku": "BOLT-013",
+    "name": "MS Hex Bolt M8x50 Grade 8.8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M8",
+      "length_mm": "50",
+      "grade": "8.8"
+    },
+    "aliases": [
+      "High Tensile Hex Bolt M8x50 8.8",
+      "HT Hex Bolt M8*50 Gr 8.8"
+    ]
+  },
+  {
+    "sku": "BOLT-014",
+    "name": "MS Hex Bolt M10x40 Grade 8.8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M10",
+      "length_mm": "40",
+      "grade": "8.8"
+    },
+    "aliases": [
+      "High Tensile Hex Bolt M10x40 8.8",
+      "HT Hex Bolt M10*40 Gr 8.8"
+    ]
+  },
+  {
+    "sku": "BOLT-015",
+    "name": "MS Hex Bolt M10x60 Grade 8.8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M10",
+      "length_mm": "60",
+      "grade": "8.8"
+    },
+    "aliases": [
+      "High Tensile Hex Bolt M10x60 8.8",
+      "HT Hex Bolt M10*60 Gr 8.8"
+    ]
+  },
+  {
+    "sku": "BOLT-016",
+    "name": "MS Hex Bolt M12x50 Grade 8.8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M12",
+      "length_mm": "50",
+      "grade": "8.8"
+    },
+    "aliases": [
+      "High Tensile Hex Bolt M12x50 8.8",
+      "HT Hex Bolt M12*50 Gr 8.8"
+    ]
+  },
+  {
+    "sku": "BOLT-017",
+    "name": "MS Hex Bolt M12x75 Grade 8.8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M12",
+      "length_mm": "75",
+      "grade": "8.8"
+    },
+    "aliases": [
+      "High Tensile Hex Bolt M12x75 8.8",
+      "HT Hex Bolt M12*75 Gr 8.8"
+    ]
+  },
+  {
+    "sku": "BOLT-018",
+    "name": "MS Hex Bolt M16x60 Grade 8.8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M16",
+      "length_mm": "60",
+      "grade": "8.8"
+    },
+    "aliases": [
+      "High Tensile Hex Bolt M16x60 8.8",
+      "HT Hex Bolt M16*60 Gr 8.8"
+    ]
+  },
+  {
+    "sku": "BOLT-019",
+    "name": "MS Hex Bolt M16x100 Grade 8.8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M16",
+      "length_mm": "100",
+      "grade": "8.8"
+    },
+    "aliases": [
+      "High Tensile Hex Bolt M16x100 8.8",
+      "HT Hex Bolt M16*100 Gr 8.8"
+    ]
+  },
+  {
+    "sku": "BOLT-020",
+    "name": "MS Hex Bolt M20x75 Grade 8.8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M20",
+      "length_mm": "75",
+      "grade": "8.8"
+    },
+    "aliases": [
+      "High Tensile Hex Bolt M20x75 8.8",
+      "HT Hex Bolt M20*75 Gr 8.8"
+    ]
+  },
+  {
+    "sku": "BOLT-021",
+    "name": "SS304 Hex Bolt M8x30",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "SS304",
+      "thread": "M8",
+      "length_mm": "30"
+    },
+    "aliases": [
+      "Stainless Steel Hex Bolt M8x30 SS 304",
+      "SS 304 Bolt M8*30"
+    ]
+  },
+  {
+    "sku": "BOLT-022",
+    "name": "SS304 Hex Bolt M8x50",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "SS304",
+      "thread": "M8",
+      "length_mm": "50"
+    },
+    "aliases": [
+      "Stainless Steel Hex Bolt M8x50 SS 304",
+      "SS 304 Bolt M8*50"
+    ]
+  },
+  {
+    "sku": "BOLT-023",
+    "name": "SS304 Hex Bolt M10x40",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "SS304",
+      "thread": "M10",
+      "length_mm": "40"
+    },
+    "aliases": [
+      "Stainless Steel Hex Bolt M10x40 SS 304",
+      "SS 304 Bolt M10*40"
+    ]
+  },
+  {
+    "sku": "BOLT-024",
+    "name": "SS304 Hex Bolt M10x60",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "SS304",
+      "thread": "M10",
+      "length_mm": "60"
+    },
+    "aliases": [
+      "Stainless Steel Hex Bolt M10x60 SS 304",
+      "SS 304 Bolt M10*60"
+    ]
+  },
+  {
+    "sku": "BOLT-025",
+    "name": "SS304 Hex Bolt M12x50",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "SS304",
+      "thread": "M12",
+      "length_mm": "50"
+    },
+    "aliases": [
+      "Stainless Steel Hex Bolt M12x50 SS 304",
+      "SS 304 Bolt M12*50"
+    ]
+  },
+  {
+    "sku": "BOLT-026",
+    "name": "SS304 Hex Bolt M16x60",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "SS304",
+      "thread": "M16",
+      "length_mm": "60"
+    },
+    "aliases": [
+      "Stainless Steel Hex Bolt M16x60 SS 304",
+      "SS 304 Bolt M16*60"
+    ]
+  },
+  {
+    "sku": "BOLT-027",
+    "name": "MS Hex Nut M6",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M6"
+    },
+    "aliases": [
+      "Mild Steel Hexagon Nut M6",
+      "MS Nut M6"
+    ]
+  },
+  {
+    "sku": "BOLT-028",
+    "name": "MS Hex Nut M8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M8"
+    },
+    "aliases": [
+      "Mild Steel Hexagon Nut M8",
+      "MS Nut M8"
+    ]
+  },
+  {
+    "sku": "BOLT-029",
+    "name": "MS Hex Nut M10",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M10"
+    },
+    "aliases": [
+      "Mild Steel Hexagon Nut M10",
+      "MS Nut M10"
+    ]
+  },
+  {
+    "sku": "BOLT-030",
+    "name": "MS Hex Nut M12",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M12"
+    },
+    "aliases": [
+      "Mild Steel Hexagon Nut M12",
+      "MS Nut M12"
+    ]
+  },
+  {
+    "sku": "BOLT-031",
+    "name": "MS Hex Nut M16",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M16"
+    },
+    "aliases": [
+      "Mild Steel Hexagon Nut M16",
+      "MS Nut M16"
+    ]
+  },
+  {
+    "sku": "BOLT-032",
+    "name": "MS Hex Nut M20",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "thread": "M20"
+    },
+    "aliases": [
+      "Mild Steel Hexagon Nut M20",
+      "MS Nut M20"
+    ]
+  },
+  {
+    "sku": "BOLT-033",
+    "name": "MS Plain Washer M8",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "size_mm": "8"
+    },
+    "aliases": [
+      "Mild Steel Flat Washer M8",
+      "MS Washer ID 8mm"
+    ]
+  },
+  {
+    "sku": "BOLT-034",
+    "name": "MS Plain Washer M10",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "size_mm": "10"
+    },
+    "aliases": [
+      "Mild Steel Flat Washer M10",
+      "MS Washer ID 10mm"
+    ]
+  },
+  {
+    "sku": "BOLT-035",
+    "name": "MS Plain Washer M12",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "size_mm": "12"
+    },
+    "aliases": [
+      "Mild Steel Flat Washer M12",
+      "MS Washer ID 12mm"
+    ]
+  },
+  {
+    "sku": "BOLT-036",
+    "name": "MS Plain Washer M16",
+    "category": "fastener",
+    "uom": "nos",
+    "attributes": {
+      "material": "MS",
+      "size_mm": "16"
+    },
+    "aliases": [
+      "Mild Steel Flat Washer M16",
+      "MS Washer ID 16mm"
+    ]
+  },
+  {
+    "sku": "FITT-001",
+    "name": "GI 90 Degree Elbow 15mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "15",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Elbow 90 Deg 15mm",
+      "GI Bend 90 15mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-002",
+    "name": "GI 90 Degree Elbow 20mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "20",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Elbow 90 Deg 20mm",
+      "GI Bend 90 20mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-003",
+    "name": "GI 90 Degree Elbow 25mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "25",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Elbow 90 Deg 25mm",
+      "GI Bend 90 25mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-004",
+    "name": "GI 90 Degree Elbow 32mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "32",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Elbow 90 Deg 32mm",
+      "GI Bend 90 32mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-005",
+    "name": "GI 90 Degree Elbow 50mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "50",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Elbow 90 Deg 50mm",
+      "GI Bend 90 50mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-006",
+    "name": "GI Equal Tee 15mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "15",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Equal Tee 15mm",
+      "GI Tee 15mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-007",
+    "name": "GI Equal Tee 20mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "20",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Equal Tee 20mm",
+      "GI Tee 20mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-008",
+    "name": "GI Equal Tee 25mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "25",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Equal Tee 25mm",
+      "GI Tee 25mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-009",
+    "name": "GI Equal Tee 50mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "50",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Equal Tee 50mm",
+      "GI Tee 50mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-010",
+    "name": "GI Socket Coupling 15mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "15",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe Socket 15mm",
+      "GI Coupling 15mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-011",
+    "name": "GI Socket Coupling 20mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "20",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe Socket 20mm",
+      "GI Coupling 20mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-012",
+    "name": "GI Socket Coupling 25mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "25",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe Socket 25mm",
+      "GI Coupling 25mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-013",
+    "name": "GI Socket Coupling 50mm Class B",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "50",
+      "class": "B"
+    },
+    "aliases": [
+      "Galvanized Iron Pipe Socket 50mm",
+      "GI Coupling 50mm Medium"
+    ]
+  },
+  {
+    "sku": "FITT-014",
+    "name": "PVC 90 Degree Elbow 20mm",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "20"
+    },
+    "aliases": [
+      "UPVC Conduit Elbow 90 20mm",
+      "PVC Pipe Bend 20mm"
+    ]
+  },
+  {
+    "sku": "FITT-015",
+    "name": "PVC 90 Degree Elbow 25mm",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "25"
+    },
+    "aliases": [
+      "UPVC Conduit Elbow 90 25mm",
+      "PVC Pipe Bend 25mm"
+    ]
+  },
+  {
+    "sku": "FITT-016",
+    "name": "PVC 90 Degree Elbow 32mm",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "32"
+    },
+    "aliases": [
+      "UPVC Conduit Elbow 90 32mm",
+      "PVC Pipe Bend 32mm"
+    ]
+  },
+  {
+    "sku": "FITT-017",
+    "name": "PVC 90 Degree Elbow 40mm",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "40"
+    },
+    "aliases": [
+      "UPVC Conduit Elbow 90 40mm",
+      "PVC Pipe Bend 40mm"
+    ]
+  },
+  {
+    "sku": "FITT-018",
+    "name": "PVC 90 Degree Elbow 50mm",
+    "category": "fitting",
+    "uom": "nos",
+    "attributes": {
+      "material": "PVC",
+      "size_mm": "50"
+    },
+    "aliases": [
+      "UPVC Conduit Elbow 90 50mm",
+      "PVC Pipe Bend 50mm"
+    ]
+  },
+  {
+    "sku": "VALV-001",
+    "name": "Brass Ball Valve Screwed 15mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "BRASS",
+      "size_mm": "15"
+    },
+    "aliases": [
+      "Brass Screwed Ball Valve 15mm",
+      "Forged Brass Ball Valve 15mm"
+    ]
+  },
+  {
+    "sku": "VALV-002",
+    "name": "Brass Ball Valve Screwed 20mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "BRASS",
+      "size_mm": "20"
+    },
+    "aliases": [
+      "Brass Screwed Ball Valve 20mm",
+      "Forged Brass Ball Valve 20mm"
+    ]
+  },
+  {
+    "sku": "VALV-003",
+    "name": "Brass Ball Valve Screwed 25mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "BRASS",
+      "size_mm": "25"
+    },
+    "aliases": [
+      "Brass Screwed Ball Valve 25mm",
+      "Forged Brass Ball Valve 25mm"
+    ]
+  },
+  {
+    "sku": "VALV-004",
+    "name": "Brass Ball Valve Screwed 50mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "BRASS",
+      "size_mm": "50"
+    },
+    "aliases": [
+      "Brass Screwed Ball Valve 50mm",
+      "Forged Brass Ball Valve 50mm"
+    ]
+  },
+  {
+    "sku": "VALV-005",
+    "name": "Brass Gate Valve Screwed 15mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "BRASS",
+      "size_mm": "15"
+    },
+    "aliases": [
+      "Brass Peet Valve Screwed 15mm",
+      "Brass Sluice Gate Valve 15mm"
+    ]
+  },
+  {
+    "sku": "VALV-006",
+    "name": "Brass Gate Valve Screwed 20mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "BRASS",
+      "size_mm": "20"
+    },
+    "aliases": [
+      "Brass Peet Valve Screwed 20mm",
+      "Brass Sluice Gate Valve 20mm"
+    ]
+  },
+  {
+    "sku": "VALV-007",
+    "name": "Brass Gate Valve Screwed 25mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "BRASS",
+      "size_mm": "25"
+    },
+    "aliases": [
+      "Brass Peet Valve Screwed 25mm",
+      "Brass Sluice Gate Valve 25mm"
+    ]
+  },
+  {
+    "sku": "VALV-008",
+    "name": "Brass Gate Valve Screwed 50mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "BRASS",
+      "size_mm": "50"
+    },
+    "aliases": [
+      "Brass Peet Valve Screwed 50mm",
+      "Brass Sluice Gate Valve 50mm"
+    ]
+  },
+  {
+    "sku": "VALV-009",
+    "name": "GI Non Return Check Valve 25mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "25"
+    },
+    "aliases": [
+      "Galvanized Iron NRV Valve 25mm",
+      "GI Check Valve Screwed 25mm"
+    ]
+  },
+  {
+    "sku": "VALV-010",
+    "name": "GI Non Return Check Valve 50mm",
+    "category": "valve",
+    "uom": "nos",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "50"
+    },
+    "aliases": [
+      "Galvanized Iron NRV Valve 50mm",
+      "GI Check Valve Screwed 50mm"
+    ]
+  },
+  {
+    "sku": "CONS-001",
+    "name": "Welding Electrodes MS E6013 3.15mm",
+    "category": "consumable",
+    "uom": "kg",
+    "attributes": {
+      "material": "MS",
+      "size_mm": "3.15"
+    },
+    "aliases": [
+      "Mild Steel Welding Rod 3.15mm",
+      "Arc Welding Electrodes 3.15"
+    ]
+  },
+  {
+    "sku": "CONS-002",
+    "name": "Welding Electrodes MS E6013 4.0mm",
+    "category": "consumable",
+    "uom": "kg",
+    "attributes": {
+      "material": "MS",
+      "size_mm": "4"
+    },
+    "aliases": [
+      "Mild Steel Welding Rod 4mm",
+      "Arc Welding Electrodes 4.0"
+    ]
+  },
+  {
+    "sku": "CONS-003",
+    "name": "PTFE Thread Seal Tape 12mm x 10m",
+    "category": "consumable",
+    "uom": "roll",
+    "attributes": {
+      "size_mm": "12"
+    },
+    "aliases": [
+      "Teflon Thread Tape 12mm",
+      "PTFE Pipe Joint Tape"
+    ]
+  },
+  {
+    "sku": "CONS-004",
+    "name": "Red Oxide Metal Primer Paint",
+    "category": "consumable",
+    "uom": "ltr",
+    "attributes": {},
+    "aliases": [
+      "Anti Corrosive Red Oxide Primer",
+      "Industrial Red Oxide Paint"
+    ]
+  },
+  {
+    "sku": "CONS-005",
+    "name": "Industrial Synthetic Enamel Paint Gloss Black",
+    "category": "consumable",
+    "uom": "ltr",
+    "attributes": {},
+    "aliases": [
+      "Synthetic Enamel Black Paint",
+      "Gloss Black Machinery Paint"
+    ]
+  },
+  {
+    "sku": "CONS-006",
+    "name": "GI Binding Wire 16 SWG 1.6mm",
+    "category": "consumable",
+    "uom": "kg",
+    "attributes": {
+      "material": "GI",
+      "size_mm": "1.6"
+    },
+    "aliases": [
+      "Galvanized Iron Tying Wire 16 Gauge",
+      "GI Tie Wire 1.6mm"
+    ]
+  },
+  {
+    "sku": "CONS-007",
+    "name": "Multi Purpose Grease Compound",
+    "category": "consumable",
+    "uom": "g",
+    "attributes": {},
+    "aliases": [
+      "Lithium Base Industrial Grease",
+      "Bearing Grease Compound"
+    ]
+  },
+  {
+    "sku": "CONS-008",
+    "name": "High Strength Non Shrink Structural Grout",
+    "category": "consumable",
+    "uom": "bag",
+    "attributes": {},
+    "aliases": [
+      "Cementitious Non Shrink Grout 25kg",
+      "Precision Machine Grout Compound"
+    ]
+  }
+]

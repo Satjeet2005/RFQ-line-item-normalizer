@@ -1,0 +1,429 @@
+{
+  "baseline": {
+    "counts": {
+      "correct_proposed": 14,
+      "expected_match": 17,
+      "expected_review": 18,
+      "expected_unmatched": 5,
+      "system_ambiguous": 0,
+      "system_proposed": 38,
+      "system_unmatched": 2
+    },
+    "m1_top_candidate_correct_rate": {
+      "denominator": 17,
+      "numerator": 14,
+      "rate": 0.8235
+    },
+    "m2_proposed_precision": {
+      "denominator": 38,
+      "numerator": 14,
+      "rate": 0.3684
+    },
+    "m3_incorrect_confident_suggestions": {
+      "cases": [
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-013",
+          "expected_outcome": "match",
+          "expected_sku": "BOLT-018",
+          "id": "E-007",
+          "input": "MILD STEEL HEX BOLT M16 X 60 MM GR 8.8 50 PCS"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-001",
+          "expected_outcome": "match",
+          "expected_sku": "BOLT-023",
+          "id": "E-008",
+          "input": "SS 304 Bolt M10*40 25 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "FITT-006",
+          "expected_outcome": "match",
+          "expected_sku": "FITT-009",
+          "id": "E-009",
+          "input": "GI Equal Tee 50 mm Class B 15 no"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-006",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-015",
+          "input": "GI Pipe 25mm Class B 50 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-005",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-016",
+          "input": "MS Hex Bolt M10x40 Grade 4.6 15 kg"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "CONS-003",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-017",
+          "input": "PTFE Thread Seal Tape 12mm 5 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-009",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-018",
+          "input": "GI Pipe 40mm Class A mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "VALV-002",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-019",
+          "input": "Brass Ball Valve Screwed 20mm nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-008",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-020",
+          "input": "GI Pipe 32mm Class B 50"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-017",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-021",
+          "input": "MS Hex Bolt M12x75 Grade 8.8 100"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-025",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-022",
+          "input": "PVC Pipe 50mm Class A 30 bundles"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-005",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-023",
+          "input": "GI Pipe 25mm Class A Class B 10 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-002",
+          "expected_outcome": "unmatched",
+          "expected_sku": null,
+          "id": "E-024",
+          "input": "GI Pipe 70mm Class B 10 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-007",
+          "expected_outcome": "unmatched",
+          "expected_sku": null,
+          "id": "E-025",
+          "input": "Brass Hex Bolt M12x50 50 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-005",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-026",
+          "input": "GI Pipe 25mm 20 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-005",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-027",
+          "input": "MS Hex Bolt M10x40 100 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-019",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-028",
+          "input": "PVC Pipe 25mm 60 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "VALV-003",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-029",
+          "input": "Brass Valve 25mm 5 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "FITT-003",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-030",
+          "input": "GI Fitting 25mm 10 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "CONS-006",
+          "expected_outcome": "unmatched",
+          "expected_sku": null,
+          "id": "E-033",
+          "input": "Copper Refrigeration Tubing 1/2 inch 15 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "FITT-003",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-037",
+          "input": "kohni 25mm 10 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-001",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-038",
+          "input": "MS Hex Bolt M12 x 50"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-006",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-039",
+          "input": "50 mtr GI Pipe 25mm Class B"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-007",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-040",
+          "input": "MS Hex Bolt M12x50 Grade 4.6 12.5 nos"
+        }
+      ],
+      "count": 24,
+      "denominator": 38,
+      "rate": 0.6316
+    },
+    "m4_missed_escalations": {
+      "cases": [
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-006",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-015",
+          "input": "GI Pipe 25mm Class B 50 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-005",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-016",
+          "input": "MS Hex Bolt M10x40 Grade 4.6 15 kg"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "CONS-003",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-017",
+          "input": "PTFE Thread Seal Tape 12mm 5 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-009",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-018",
+          "input": "GI Pipe 40mm Class A mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "VALV-002",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-019",
+          "input": "Brass Ball Valve Screwed 20mm nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-008",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-020",
+          "input": "GI Pipe 32mm Class B 50"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-017",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-021",
+          "input": "MS Hex Bolt M12x75 Grade 8.8 100"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-025",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-022",
+          "input": "PVC Pipe 50mm Class A 30 bundles"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-005",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-023",
+          "input": "GI Pipe 25mm Class A Class B 10 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-002",
+          "expected_outcome": "unmatched",
+          "expected_sku": null,
+          "id": "E-024",
+          "input": "GI Pipe 70mm Class B 10 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-007",
+          "expected_outcome": "unmatched",
+          "expected_sku": null,
+          "id": "E-025",
+          "input": "Brass Hex Bolt M12x50 50 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-005",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-026",
+          "input": "GI Pipe 25mm 20 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-005",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-027",
+          "input": "MS Hex Bolt M10x40 100 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-019",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-028",
+          "input": "PVC Pipe 25mm 60 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "VALV-003",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-029",
+          "input": "Brass Valve 25mm 5 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "FITT-003",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-030",
+          "input": "GI Fitting 25mm 10 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "CONS-006",
+          "expected_outcome": "unmatched",
+          "expected_sku": null,
+          "id": "E-033",
+          "input": "Copper Refrigeration Tubing 1/2 inch 15 mtr"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "FITT-003",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-037",
+          "input": "kohni 25mm 10 nos"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-001",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-038",
+          "input": "MS Hex Bolt M12 x 50"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "PIPE-006",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-039",
+          "input": "50 mtr GI Pipe 25mm Class B"
+        },
+        {
+          "actual_outcome": "proposed",
+          "actual_sku": "BOLT-007",
+          "expected_outcome": "review",
+          "expected_sku": null,
+          "id": "E-040",
+          "input": "MS Hex Bolt M12x50 Grade 4.6 12.5 nos"
+        }
+      ],
+      "count": 21,
+      "denominator": 23,
+      "rate": 0.913
+    },
+    "m5_over_abstention_rate": {
+      "denominator": 17,
+      "numerator": 0,
+      "rate": 0.0
+    },
+    "m6_appropriate_abstention_rate": {
+      "denominator": 18,
+      "numerator": 0,
+      "rate": 0.0
+    },
+    "m7_unmatched_detection_rate": {
+      "denominator": 5,
+      "numerator": 2,
+      "proposed_count": 3,
+      "rate": 0.4
+    },
+    "m8_normalization_accuracy": null,
+    "m9_validation_rule_violations": null,
+    "sample_size": 40,
+    "system": "baseline"
+  },
+  "metadata": {
+    "code_revision": "dataset-v1-frozen",
+    "command": "python -m rfq_eval run --dataset eval/dataset/v1 --system both --out eval/reports/latest",
+    "config_sha256": "3f37679f4bbbe576847bf25cbe35306b3f136d76bd7686a0911ab8bfec0be043",
+    "dataset_manifest_sha256": "fa5eb9cc37651a3a28b96a322421500e8b8be3112f631e9f05cdf7b370cc345a",
+    "dataset_version": "v1-frozen",
+    "results_path": "results.jsonl"
+  },
+  "proposed": {
+    "note": "Proposed matcher (domain/matcher.py) not implemented in Phase 1 per PRD freeze protocol. Implementation scheduled for Phase 2 after threshold tuning on dev set.",
+    "status": "unavailable"
+  }
+}

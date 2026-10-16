@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0-provisional",
+  "K": 5,
+  "T_MIN_CANDIDATE": 0.30,
+  "T_PROPOSE": 0.60,
+  "T_MARGIN": 0.10,
+  "rationale": "Provisional hypothesis seeds per PRD Section I. Numeric thresholds must be tuned on eval/dev/cases.jsonl during Phase 2 before running the frozen evaluation benchmark."
+}

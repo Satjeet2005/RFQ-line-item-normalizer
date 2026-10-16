@@ -1,0 +1,103 @@
+# Evaluation Run Log (`EVAL_LOG.md`)
+
+This log tracks every evaluation execution on the benchmark dataset to enforce methodological integrity, freeze discipline, and contamination transparency per `PRD.md` Section J and Section K.
+
+---
+
+## Run 1: Naive Baseline Harness Verification
+
+- **Date:** 2026-10-16
+- **Phase:** Phase 1 (Specification Validation and Evaluation Dataset Foundation)
+- **Status:** **DRAFT BENCHMARK EXECUTION** (Dataset unfrozen; second labelling pass pending)
+- **Dataset Version:** `v1-draft`
+- **Dataset Manifest SHA-256:** `8877085ed6dc569d5bcc3794468bfb707f949b316e3812bb974fd90fa5ccebc6`
+- **Config SHA-256:** `3f37679f4bbbe576847bf25cbe35306b3f136d76bd7686a0911ab8bfec0be043`
+- **Command:** `python -m rfq_eval run --dataset eval/dataset/v1 --system both --out eval/reports/latest`
+- **Code Revision:** `initial-phase1`
+- **Contamination Status:** **UNCONTAMINATED**
+  - The proposed matcher (`domain/matcher.py`) has **not** been implemented.
+  - No matching thresholds have been tuned on frozen evaluation cases.
+  - The naive baseline algorithm is fixed and has no parameters.
+- **Harness Verification:**
+  - Evaluator imports zero web or database frameworks (`test_isolation.py` PASSED).
+  - Manifest verification detects tampering and exits with code 2 (`test_manifest.py` PASSED).
+  - Successive runs produce byte-identical `results.jsonl`, `report.json`, and `report.md` (runtime isolated in `timing.json`).
+
+### Baseline Metrics Summary (40 Cases)
+
+| Metric | Name | Baseline Result |
+|---|---|---|
+| **M1** | Top-candidate correct rate | 70.59% (12 / 17 expected matches) |
+| **M2** | Proposed precision | 31.58% (12 / 38 proposed) |
+| **M3** | Incorrect confident suggestions | **68.42%** (26 cases proposed incorrectly) |
+| **M4** | Missed escalations | **91.30%** (21 / 23 required escalations missed) |
+| **M5** | Over-abstention rate | 0.00% (0 / 17) |
+| **M6** | Appropriate abstention rate | 0.00% (0 / 18 - baseline never abstains) |
+| **M7** | Unmatched detection rate | 40.00% (2 / 5 detected solely by zero token overlap) |
+| **M8** | Normalization accuracy | n/a (baseline has no normalization engine) |
+| **M9** | Validation rule violations | n/a |
+
+### Observations:
+The baseline exposes the exact safety hazard described in `PRD.md`: because lexical token overlap has no understanding of units, missing specifications, or near-duplicate product variants, it forces a confident suggestion on 38 out of 40 lines, causing 26 incorrect proposals and missing 21 critical review escalations.
+
+### Sequencing and Freeze Protocol Check:
+1. `second_pass_done: false` was set across all 40 cases in initial draft `eval/dataset/v1/cases.jsonl`.
+2. Initial labelling pass creation timestamp: `2026-10-16T09:51:57Z` (`15:21:57+05:30` IST).
+3. Project owner waiver `D33` approved waiving the 24-hour procedural delay for this iteration.
+4. Independent blind second pass executed and recorded at `2026-10-16T12:39:58Z`.
+5. Reconciliation completed in `LABEL_NOTES.md`. Reconciled labels applied to `cases.jsonl` with `second_pass_done: true`.
+
+---
+
+## Run 2: Final Frozen Benchmark Evaluation (Phase 1 Baseline)
+
+- **Date:** 2026-10-16
+- **Phase:** Phase 1 (Specification Validation and Evaluation Dataset Foundation)
+- **Status:** **FROZEN BENCHMARK EXECUTION** (Dataset frozen; second pass completed and reconciled; tagged `dataset-v1-frozen`)
+- **Dataset Version:** `v1-frozen`
+- **Dataset Manifest SHA-256:** `fa5eb9cc37651a3a28b96a322421500e8b8be3112f631e9f05cdf7b370cc345a`
+- **Config SHA-256:** `3f37679f4bbbe576847bf25cbe35306b3f136d76bd7686a0911ab8bfec0be043`
+- **Command:** `python -m rfq_eval run --dataset eval/dataset/v1 --system both --out eval/reports/latest`
+- **Code Revision:** `dataset-v1-frozen`
+- **Contamination Status:** **UNCONTAMINATED**
+  - The proposed matcher (`domain/matcher.py`) has **not** been implemented.
+  - No matching thresholds have been tuned on frozen evaluation cases.
+  - The naive baseline algorithm is fixed and has no parameters.
+- **Harness & Environment Verification:**
+  - Evaluator imports zero web or database frameworks (`test_isolation.py` PASSED).
+  - Manifest verification detects tampering and exits with code 2 (`test_manifest.py` PASSED).
+  - Deterministic evaluation produces byte-identical outputs across successive runs.
+
+### Procedural Waiver & Timestamps Record
+- **Project-Owner Waiver:** `D33` recorded in `PRD_DECISIONS.md`. The 24-hour minimum waiting period was explicitly waived to complete the project efficiently without an unnecessary calendar delay. Review independence, data validation, and reproducibility requirements remained fully in effect.
+- **Initial Pass Timestamp:** `2026-10-16T09:51:57Z` (Pass 1).
+- **Second Pass Timestamp:** `2026-10-16T12:39:58Z` (Pass 2, independent blind session).
+- **Reconciliation Agreement:**
+  - System Outcome Agreement: **97.5%** (39 / 40 cases agreed)
+  - Full Agreement (outcome + SKU + fields): **92.5%** (37 / 40 cases agreed)
+- **Reconciliation Resolutions:**
+  - `E-001`: Corrected typo `PIPE-004` (20mm) to `PIPE-006` (25mm Class B).
+  - `E-034`: Corrected typo `PIPE-002` (15mm) to `PIPE-003` (20mm Class A).
+  - `E-015`: Corrected rationale citation to `PIPE-006`.
+  - `E-026`: Corrected rationale citation to `PIPE-005` and `PIPE-006`.
+  - `E-039`: Reconciled to `review` per PRD Section E / Decision D9 / Category 13 (leading quantity in free-text line without delimiter requires human review).
+- **Ground Truth Freeze:** All 40 cases in `eval/dataset/v1/cases.jsonl` marked with `second_pass_done: true`, `second_pass_at: 2026-10-16T12:39:58Z`, and `waiver_applied: project_owner_waiver_d33`.
+
+### Baseline Metrics Summary (40 Frozen Cases)
+
+| Metric | Name | Baseline Result | Proposed Matcher |
+|---|---|---|---|
+| **M1** | Top-candidate correct rate | 82.35% (14 / 17 expected matches) | *pending Phase 2* |
+| **M2** | Proposed precision | 36.84% (14 / 38 proposed) | *pending Phase 2* |
+| **M3** | Incorrect confident suggestions | **63.16%** (24 cases proposed incorrectly) | *pending Phase 2* |
+| **M4** | Missed escalations | **91.30%** (21 / 23 required escalations missed) | *pending Phase 2* |
+| **M5** | Over-abstention rate | 0.00% (0 / 17) | *pending Phase 2* |
+| **M6** | Appropriate abstention rate | 0.00% (0 / 18 - baseline never abstains) | *pending Phase 2* |
+| **M7** | Unmatched detection rate | 40.00% (2 / 5 detected solely by zero token overlap) | *pending Phase 2* |
+| **M8** | Normalization accuracy | n/a (baseline has no normalization engine) | *pending Phase 2* |
+| **M9** | Validation rule violations | n/a | *pending Phase 2* |
+
+### Observations & Phase 1 Conclusion:
+With corrected labels on `E-001` and `E-034`, baseline M1 increased from 70.59% to 82.35%, and M2 increased from 31.58% to 36.84%. However, the baseline's lack of abstention and spec reasoning continues to produce catastrophic safety hazards: **63.16% incorrect proposals (M3, 24 cases)** and **91.30% missed escalations (M4, 21 cases)**.
+
+Phase 1 benchmark dataset is **FROZEN** and sealed under `MANIFEST.sha256` (`fa5eb9cc37651a3a28b96a322421500e8b8be3112f631e9f05cdf7b370cc345a`). Git tag `dataset-v1-frozen` marks the boundary before any matcher development in Phase 2.

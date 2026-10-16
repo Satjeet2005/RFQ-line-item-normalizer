@@ -1,0 +1,52 @@
+{
+  "attributes": [
+    "size_mm",
+    "length_mm",
+    "thread",
+    "material",
+    "class",
+    "grade"
+  ],
+  "materials": [
+    "GI",
+    "MS",
+    "SS304",
+    "SS316",
+    "PVC",
+    "BRASS",
+    "CU"
+  ],
+  "classes": [
+    "A",
+    "B",
+    "C"
+  ],
+  "grades": [
+    "4.6",
+    "8.8",
+    "10.9"
+  ],
+  "stop_words": [
+    "of",
+    "the",
+    "and",
+    "with",
+    "for",
+    "type",
+    "make",
+    "quality",
+    "item",
+    "supply"
+  ],
+  "dimensions": {
+    "count": ["nos", "set", "pair", "box", "roll", "bag"],
+    "length": ["mtr", "ft"],
+    "mass": ["kg", "g"],
+    "volume": ["ltr", "ml"]
+  },
+  "conversions": {
+    "ft_to_mtr": "0.3048",
+    "g_to_kg": "0.001",
+    "ml_to_ltr": "0.001"
+  }
+}

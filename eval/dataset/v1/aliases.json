@@ -1,0 +1,34 @@
+{
+  "units": {
+    "nos": ["nos", "no", "nr", "pc", "pcs", "piece", "pieces", "unit", "units", "nag", "नग"],
+    "set": ["set", "sets"],
+    "pair": ["pair", "pairs"],
+    "box": ["box", "boxes"],
+    "roll": ["roll", "rolls"],
+    "bag": ["bag", "bags"],
+    "mtr": ["m", "mtr", "mtrs", "meter", "meters", "metre", "metres", "meetar", "मीटर"],
+    "ft": ["ft", "feet", "foot", "fut", "फुट"],
+    "kg": ["kg", "kgs", "kilo", "kilos", "kilogram", "kilograms", "किलो"],
+    "g": ["g", "gm", "gms", "gram", "grams"],
+    "ltr": ["l", "lt", "ltr", "ltrs", "liter", "liters", "litre", "litres", "लीटर"],
+    "ml": ["ml", "mls", "millilitre", "milliliter"]
+  },
+  "product_terms": {
+    "paip": "pipe",
+    "पाइप": "pipe",
+    "bolt": "bolt",
+    "बोल्ट": "bolt",
+    "nat": "nut",
+    "नट": "nut",
+    "valv": "valve",
+    "वाल्व": "valve",
+    "kohni": "elbow",
+    "कोहनी": "elbow",
+    "pital": "brass",
+    "पीतल": "brass",
+    "tamba": "copper",
+    "तांबा": "copper",
+    "dasta": "gi",
+    "जस्ता": "gi"
+  }
+}
