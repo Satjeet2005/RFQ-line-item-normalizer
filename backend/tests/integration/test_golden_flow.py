@@ -143,18 +143,47 @@ def test_auditor_golden_flow(client, db_session):
     assert no_match_data["version"] == 2
     assert no_match_data["final_sku"] is None
 
+    # 7b. Correct another item to a different catalog product (Checklist P0 R1)
+    bolt_item = next(
+        (it for it in items if "MS Hex Bolt" in it["raw_input"]),
+        None,
+    )
+    assert bolt_item is not None
+    bolt_cand_skus = [c["sku"] for c in bolt_item["candidates"]]
+    assert "VALV-001" not in bolt_cand_skus
+
+    correct_resp = client.post(
+        f"/api/v1/rfqs/{rfq_id}/items/{bolt_item['id']}/decisions",
+        json={
+            "decision_type": "correct",
+            "expected_version": 1,
+            "sku": "VALV-001",
+            "quantity": 10,
+            "unit": "nos",
+            "note": "Corrected from bolt to ball valve for testing manual correction",
+        },
+    )
+    assert correct_resp.status_code == 201
+    corrected_data = correct_resp.json()["item"]
+    assert corrected_data["review_status"] == "corrected"
+    assert corrected_data["final_sku"] == "VALV-001"
+    assert corrected_data["final_quantity"] == 10.0
+    assert corrected_data["final_unit"] == "nos"
+    assert corrected_data["version"] == 2
+
     # 8. Export CSV with allow_incomplete=true (Checklist P0 X1, X2, X3)
-    csv_resp = client.get(f"/api/v1/rfqs/{rfq_id}/export?format=csv&allow_incomplete=true")
+    # RFQ is now fully reviewed: 1 approved, 1 corrected, 1 rejected, 1 no_match
+    csv_resp = client.get(f"/api/v1/rfqs/{rfq_id}/export?format=csv")
     assert csv_resp.status_code == 200
     assert "text/csv" in csv_resp.headers["content-type"]
     assert "X-Items-Excluded" in csv_resp.headers
-    # 3 items excluded (1 unreviewed bolt, 1 rejected pipe, 1 no_match valve)
-    assert int(csv_resp.headers["X-Items-Excluded"]) == 3
+    # 2 items excluded (1 rejected pipe, 1 no_match valve)
+    assert int(csv_resp.headers["X-Items-Excluded"]) == 2
 
     reader = csv.reader(io.StringIO(csv_resp.text))
     rows = list(reader)
-    # Header + exactly 1 finalized line
-    assert len(rows) == 2
+    # Header + exactly 2 finalized lines (1 approved + 1 corrected)
+    assert len(rows) == 3
     expected_header = [
         "line_no",
         "original_description",
@@ -171,17 +200,38 @@ def test_auditor_golden_flow(client, db_session):
     assert rows[0] == expected_header
     assert "price" not in [col.lower() for col in rows[0]]  # Checklist P0 X3
 
-    data_row = rows[1]
-    assert data_row[2] == selected_candidate_sku
-    assert float(data_row[4]) == 50.0
-    assert data_row[5] == "mtr"
-    assert data_row[8] == "approved"
+    # Check finalized rows
+    finalized_skus = {rows[1][2], rows[2][2]}
+    assert finalized_skus == {selected_candidate_sku, "VALV-001"}
 
     # 9. Export JSON (Checklist P1 X5)
-    json_resp = client.get(f"/api/v1/rfqs/{rfq_id}/export?format=json&allow_incomplete=true")
+    json_resp = client.get(f"/api/v1/rfqs/{rfq_id}/export?format=json")
     assert json_resp.status_code == 200
     json_data = json_resp.json()
     assert "finalized" in json_data
     assert "not_finalized" in json_data
-    assert len(json_data["finalized"]) == 1
-    assert len(json_data["not_finalized"]) == 3
+    assert len(json_data["finalized"]) == 2
+    assert len(json_data["not_finalized"]) == 2
+
+    # 10. Verify persistence across API / session restart (Checklist P0 R5)
+    from app.db.session import SessionLocal
+    fresh_session = SessionLocal()
+    try:
+        persisted_rfq = fresh_session.query(RFQ).filter(RFQ.id == rfq_id).first()
+        assert persisted_rfq is not None
+        assert persisted_rfq.name == "Golden Flow RFQ"
+
+        persisted_items = (
+            fresh_session.query(LineItem)
+            .filter(LineItem.rfq_id == rfq_id)
+            .order_by(LineItem.line_no)
+            .all()
+        )
+        assert len(persisted_items) == 4
+        statuses = {it.line_no: it.review_status for it in persisted_items}
+        assert statuses[ambig_item["line_no"]] == "approved"
+        assert statuses[proposed_item["line_no"]] == "rejected"
+        assert statuses[unmatched_item["line_no"]] == "no_match"
+        assert statuses[bolt_item["line_no"]] == "corrected"
+    finally:
+        fresh_session.close()

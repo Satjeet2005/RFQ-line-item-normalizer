@@ -152,3 +152,46 @@ Phase 1 benchmark dataset is **FROZEN** and sealed under `MANIFEST.sha256` (`fa5
    - In accordance with freeze protocol, thresholds were **not** tuned or retroactively modified; the over-abstention is reported honestly ($M_5 = 5.88\%$).
 4. **Phase 2 Complete:** The deterministic normalizer and proposed matching engine meet all PRD Phase 2 acceptance criteria.
 
+---
+
+## Run 4: Phase 4 Full-System Audit and Reproducibility Verification
+
+- **Date:** 2026-10-16
+- **Phase:** Phase 4 (Full-System Audit, Frozen Benchmark Evaluation, and Regression Verification)
+- **Status:** **OFFICIAL VERIFICATION BENCHMARK EXECUTION**
+- **Dataset Version:** `v1-frozen`
+- **Dataset Manifest SHA-256:** `fa5eb9cc37651a3a28b96a322421500e8b8be3112f631e9f05cdf7b370cc345a`
+- **Config SHA-256:** `9a9cd6d453fc504344a13684c0db67fce86f1625a63a430b30b3946178edbdac`
+- **Command:** `python -m rfq_eval run --dataset eval/dataset/v1 --system both --out eval/reports/latest`
+- **Code Revision:** `73e94ddec029ca31e544d09e47e8e6f40f15b914`
+- **Contamination Status:** **UNCONTAMINATED**
+  - Zero modifications were made to the frozen evaluation benchmark, its manifest, catalog, or expected labels.
+  - Database state from the full application, reviews, or API sessions cannot affect evaluation outputs.
+  - Pure Python domain isolation verified (`test_isolation.py`).
+  - No thresholds or rules were tuned or modified against the frozen set.
+- **Harness & Reproducibility Verification:**
+  - Double execution with `--out` diff confirmed byte-identical `results.jsonl`, `report.json`, and `report.md`.
+  - Isolated dataset modification test confirmed immediate abort with exit code 2 (`DATASET_MODIFIED: SHA-256 mismatch for cases.jsonl`).
+  - All 161 backend tests, 9 frontend tests (including automated `axe` checks), and clean build pass with zero warnings/errors.
+
+### Benchmark Metrics Summary (40 Frozen Cases)
+
+| Metric ID | Metric Description | Naive Baseline | Proposed Matcher | Outcome / Delta |
+|---|---|---|---|---|
+| **M1** | Top-candidate correct rate | 82.35% (14 / 17) | **94.12%** (16 / 17) | +11.77% |
+| **M2** | Proposed precision | 36.84% (14 / 38) | **100.00%** (16 / 16) | +63.16% |
+| **M3** | Incorrect confident suggestions rate | **63.16%** (24 cases) | **0.00%** (0 cases) | **Zero false proposals** |
+| **M4** | Missed escalations rate | **91.30%** (21 cases) | **0.00%** (0 cases) | **Zero missed escalations** |
+| **M5** | Over-abstention rate | 0.00% (0 / 17) | **5.88%** (1 / 17) | 1 case over-abstained (`E-010`) |
+| **M6** | Appropriate abstention rate | 0.00% (0 / 18) | **100.00%** (18 / 18) | +100.00% (All review lines escalated) |
+| **M7** | Unmatched detection rate | 40.00% (2 / 5) | **100.00%** (5 / 5) | +60.00% (All 5 unmatched detected) |
+| **M8** | Normalization accuracy | n/a | **100.00%** (206 / 206) | Perfect field-level accuracy |
+| **M9** | Validation rule violations | n/a | **0.00%** (0 / 16) | Zero rule violations |
+
+### Safety and Error Disclosures:
+- **Incorrect Confident Suggestions (M3):** 0 observed on the proposed matcher (vs 24 in baseline).
+- **Missed Escalations (M4):** 0 observed on the proposed matcher (vs 21 in baseline).
+- **Over-Abstention Audit (`E-010`):** Case `E-010` (`P.T.F.E. Thread Seal Tape 12mm 10 roll`) expected `CONS-003` with similarity `0.5333` (< $T_{PROPOSE} = 0.60$), abstaining with `LOW_SIMILARITY`. In accordance with freeze protocol, thresholds were **not** retroactively lowered or tuned; over-abstention is reported honestly ($M_5 = 5.88\%$).
+- **Disclaimer:** All results are on 40 synthetic cases authored for this benchmark; they do not represent real-world procurement failure rates or business impact, and no comparison is made with any third-party commercial product.
+
+

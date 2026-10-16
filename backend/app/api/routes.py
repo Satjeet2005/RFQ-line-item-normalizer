@@ -230,8 +230,9 @@ def make_decision(
         "item": LineItemSchema.model_validate(item),
     }
 
-# 8. Catalog Search
+# 8. Catalog Search (PRD Route 8: /catalog, with /catalog/products alias)
 @router.get("/catalog", response_model=CatalogSearchResponse)
+@router.get("/catalog/products", response_model=CatalogSearchResponse)
 def search_catalog(
     q: str = Query("", max_length=80),
     limit: int = Query(20, ge=1, le=100),

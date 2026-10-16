@@ -388,102 +388,106 @@ def ingest_rfq(
     catalog_version = get_catalog_version()
     matching_config_hash = get_matching_config_hash()
 
-    rfq = RFQ(
-        id=uuid.uuid4(),
-        name=name,
-        source_type=source_type,
-        catalog_version=catalog_version,
-        matching_config_hash=matching_config_hash,
-        skipped_count=len(row_errors),
-    )
-    db.add(rfq)
-    db.flush()
-
-    line_items: list[LineItem] = []
-    seen_rows: dict[tuple[str, str | None, str | None], int] = {}
-
-    for line_idx, row in enumerate(valid_rows):
-        line_no = line_idx + 1
-
-        norm = normalize_line(
-            row.description_raw,
-            quantity_input=row.quantity_raw,
-            unit_input=row.unit_raw,
-        )
-
-        # Duplicate row check: identical in (normalized description, quantity, unit)
-        qty_key = str(norm.quantity) if norm.quantity is not None else None
-        key = (norm.description_normalized, qty_key, norm.unit)
-        if key in seen_rows:
-            earlier_line = seen_rows[key]
-            norm.issues.append(
-                Issue(
-                    code="DUPLICATE_OF_LINE",
-                    severity="info",
-                    detail=f"Line is identical to earlier line {earlier_line}",
-                )
-            )
-        else:
-            seen_rows[key] = line_no
-
-        match_res = matcher.match(norm)
-
-        line_item = LineItem(
+    try:
+        rfq = RFQ(
             id=uuid.uuid4(),
-            rfq_id=rfq.id,
-            line_no=line_no,
-            source_row=row.source_row,
-            raw_input=row.raw_input,
-            description_raw=row.description_raw,
-            quantity_raw=row.quantity_raw,
-            unit_raw=row.unit_raw,
-            description_normalized=norm.description_normalized,
-            spec=norm.spec,
-            quantity=float(norm.quantity) if norm.quantity is not None else None,
-            unit=norm.unit,
-            unit_dimension=norm.unit_dimension,
-            issues=[{"code": i.code, "severity": i.severity, "detail": i.detail} for i in norm.issues],
-            system_outcome=match_res.system_outcome,
-            reason_codes=match_res.reason_codes,
-            review_status="pending",
-            final_sku=None,
-            final_quantity=None,
-            final_unit=None,
-            version=1,
+            name=name,
+            source_type=source_type,
+            catalog_version=catalog_version,
+            matching_config_hash=matching_config_hash,
+            skipped_count=len(row_errors),
         )
-        db.add(line_item)
+        db.add(rfq)
         db.flush()
 
-        for rank_idx, cand in enumerate(match_res.candidates, start=1):
-            conversion = None
-            if norm.quantity is not None and norm.unit and cand.uom:
-                converted_qty = convert_quantity(Decimal(str(norm.quantity)), norm.unit, cand.uom)
-                if converted_qty is not None:
-                    conversion = {
-                        "from_unit": norm.unit,
-                        "to_uom": cand.uom,
-                        "quantity_in_uom": float(converted_qty),
-                    }
+        line_items: list[LineItem] = []
+        seen_rows: dict[tuple[str, str | None, str | None], int] = {}
 
-            cand_model = CandidateMatch(
-                id=uuid.uuid4(),
-                line_item_id=line_item.id,
-                rank=rank_idx,
-                sku=cand.sku,
-                name=cand.name,
-                uom=cand.uom or "",
-                attributes=cand.attributes or {},
-                similarity=float(cand.similarity),
-                disqualified=cand.disqualified,
-                flags=cand.flags or [],
-                conversion=conversion,
+        for line_idx, row in enumerate(valid_rows):
+            line_no = line_idx + 1
+
+            norm = normalize_line(
+                row.description_raw,
+                quantity_input=row.quantity_raw,
+                unit_input=row.unit_raw,
             )
-            db.add(cand_model)
 
-        line_items.append(line_item)
+            # Duplicate row check: identical in (normalized description, quantity, unit)
+            qty_key = str(norm.quantity) if norm.quantity is not None else None
+            key = (norm.description_normalized, qty_key, norm.unit)
+            if key in seen_rows:
+                earlier_line = seen_rows[key]
+                norm.issues.append(
+                    Issue(
+                        code="DUPLICATE_OF_LINE",
+                        severity="info",
+                        detail=f"Line is identical to earlier line {earlier_line}",
+                    )
+                )
+            else:
+                seen_rows[key] = line_no
 
-    db.commit()
-    db.refresh(rfq)
+            match_res = matcher.match(norm)
+
+            line_item = LineItem(
+                id=uuid.uuid4(),
+                rfq_id=rfq.id,
+                line_no=line_no,
+                source_row=row.source_row,
+                raw_input=row.raw_input,
+                description_raw=row.description_raw,
+                quantity_raw=row.quantity_raw,
+                unit_raw=row.unit_raw,
+                description_normalized=norm.description_normalized,
+                spec=norm.spec,
+                quantity=float(norm.quantity) if norm.quantity is not None else None,
+                unit=norm.unit,
+                unit_dimension=norm.unit_dimension,
+                issues=[{"code": i.code, "severity": i.severity, "detail": i.detail} for i in norm.issues],
+                system_outcome=match_res.system_outcome,
+                reason_codes=match_res.reason_codes,
+                review_status="pending",
+                final_sku=None,
+                final_quantity=None,
+                final_unit=None,
+                version=1,
+            )
+            db.add(line_item)
+            db.flush()
+
+            for rank_idx, cand in enumerate(match_res.candidates, start=1):
+                conversion = None
+                if norm.quantity is not None and norm.unit and cand.uom:
+                    converted_qty = convert_quantity(Decimal(str(norm.quantity)), norm.unit, cand.uom)
+                    if converted_qty is not None:
+                        conversion = {
+                            "from_unit": norm.unit,
+                            "to_uom": cand.uom,
+                            "quantity_in_uom": float(converted_qty),
+                        }
+
+                cand_model = CandidateMatch(
+                    id=uuid.uuid4(),
+                    line_item_id=line_item.id,
+                    rank=rank_idx,
+                    sku=cand.sku,
+                    name=cand.name,
+                    uom=cand.uom or "",
+                    attributes=cand.attributes or {},
+                    similarity=float(cand.similarity),
+                    disqualified=cand.disqualified,
+                    flags=cand.flags or [],
+                    conversion=conversion,
+                )
+                db.add(cand_model)
+
+            line_items.append(line_item)
+
+        db.commit()
+        db.refresh(rfq)
+    except Exception:
+        db.rollback()
+        raise
 
     # Calculate summary counts
     outcome_counts = {"proposed": 0, "ambiguous": 0, "unmatched": 0}

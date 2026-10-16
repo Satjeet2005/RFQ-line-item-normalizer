@@ -1,4 +1,4 @@
-from app.db.models import RFQ
+from app.db.models import RFQ, LineItem
 
 
 def test_paste_ingestion_clean(client):
@@ -159,3 +159,27 @@ GI pipe 25mm class B 50 mtr
     # Second item must have DUPLICATE_OF_LINE issue
     issue_codes = [iss["code"] for iss in items[1]["issues"]]
     assert "DUPLICATE_OF_LINE" in issue_codes
+
+def test_rfq_creation_atomicity_on_failure(client, db_session, monkeypatch):
+    from unittest.mock import patch
+    import app.services.ingest as ingest_module
+
+    initial_rfqs = db_session.query(RFQ).count()
+    initial_items = db_session.query(LineItem).count()
+
+    # Simulate a mid-processing failure during line item insertion
+    def fail_normalize(*args, **kwargs):
+        raise RuntimeError("Simulated mid-ingestion processing explosion")
+
+    monkeypatch.setattr(ingest_module, "normalize_line", fail_normalize)
+
+    content = "GI pipe 25mm class B 50 mtr\n"
+    res = client.post(
+        "/api/v1/rfqs",
+        json={"name": "Atomic Fail RFQ", "source_type": "paste", "content": content},
+    )
+    assert res.status_code == 500
+
+    # Ensure transaction was rolled back and 0 partial records remain
+    assert db_session.query(RFQ).count() == initial_rfqs
+    assert db_session.query(LineItem).count() == initial_items

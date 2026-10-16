@@ -152,8 +152,8 @@ Record evidence (command output, commit, file path) beside each box.
   - *Evidence:* Stated in `README.md` Limitations section (total effort ≈ 28 hours, within 35h budget, no cuts required).
 
 ## 11. Verification process for the auditor
-1. Run A1–A3 on a clean checkout: `make up`, `make test`, `make lint`, `make eval`.
-2. Walk the golden flow: paste the sample → open an `ambiguous` line → confirm no preselection → approve with explicit selection → reject another → export CSV. Verified by `make e2e` (`backend/tests/integration/test_golden_flow.py`).
-3. Tamper a frozen file → confirm exit 2. Verified by `backend/tests/eval/test_manifest.py::test_tamper_detection_triggers_exit_2`.
-4. Run `make eval` twice → `diff -r` outputs. Verified byte-identical.
-5. Search for forbidden claims: `grep -ri "clearquote\|isocode" .` matches only the README context paragraph and planning documents.
+1. Run A1–A3 on a clean checkout: `make up`, `make test`, `make lint`, `make eval`. **[VERIFIED PASS]** All 161 backend tests, 9 frontend tests, linting, and evaluation pass with zero errors.
+2. Walk the golden flow: paste the sample → open an `ambiguous` line → confirm no preselection → approve with explicit selection → reject another → export CSV. **[VERIFIED PASS]** Verified by `make e2e` (`backend/tests/integration/test_golden_flow.py`), including manual correction and persistence across restart.
+3. Tamper a frozen file → confirm exit 2. **[VERIFIED PASS]** Verified in isolated environment (`/tmp/isolated_eval_test`), producing `DATASET_MODIFIED: SHA-256 mismatch for cases.jsonl` and returncode 2.
+4. Run `make eval` twice → `diff -r` outputs. **[VERIFIED PASS]** Outputs `results.jsonl`, `report.json`, and `report.md` confirmed byte-identical across runs.
+5. Search for forbidden claims: `grep -ri "clearquote\|isocode" .` matches only the README context paragraph and planning documents. **[VERIFIED PASS]** Zero occurrences in application source code, API contracts, or UI components.

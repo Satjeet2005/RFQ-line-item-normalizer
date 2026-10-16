@@ -30,6 +30,15 @@ def test_catalog_search_alias(client):
     assert data["total"] > 0
     assert any("PIPE-001" in item["sku"] for item in data["items"])
 
+def test_catalog_products_route_alias(client):
+    # Test that /api/v1/catalog/products works identically to /api/v1/catalog
+    response = client.get("/api/v1/catalog/products?q=pipe&limit=10")
+    assert response.status_code == 200
+    data = response.json()
+    assert "items" in data
+    assert "total" in data
+    assert data["total"] > 0
+
 def test_seed_idempotency(db_session):
     count1 = seed_catalog(db_session)
     count2 = seed_catalog(db_session)
