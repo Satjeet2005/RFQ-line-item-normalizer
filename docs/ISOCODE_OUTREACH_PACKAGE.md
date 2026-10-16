@@ -95,7 +95,7 @@ Because this failure was identified after the evaluation benchmark was frozen:
 
 ## 5. Artifact & Demonstration Links
 
-- **Repository:** `[GitHub Repository URL — Insert after adding remote]` *(e.g., `https://github.com/USERNAME/rfq-normalizer`)*
+- **Repository:** [`https://github.com/Satjeet2005/RFQ-line-item-normalizer`](https://github.com/Satjeet2005/RFQ-line-item-normalizer)
 - **Interactive Walkthrough Guide:** [`docs/WALKTHROUGH.md`](./WALKTHROUGH.md) (Complete 3-minute hands-on script and test data)
 - **Walkthrough Video:** `[3-Minute Technical Walkthrough Video — Insert Link]` *(Recorded per the shot list in `docs/WALKTHROUGH.md`)*
 - **Evaluation Benchmark Log:** [`EVAL_LOG.md`](../EVAL_LOG.md) (Full audit trail of baseline and matcher runs)
@@ -125,7 +125,7 @@ Key technical aspects:
 4. Multi-Tenant Integrity: Optimistic concurrency control (HTTP 409 STALE_VERSION) and append-only audit snapshots protect multi-user review workflows.
 
 Repository & Walkthrough:
-- Code & Architecture: [Insert GitHub Repository URL]
+- Code & Architecture: https://github.com/Satjeet2005/RFQ-line-item-normalizer
 - 3-Minute Technical Demo: [Insert Video URL / docs/WALKTHROUGH.md]
 
 Question for your team:
