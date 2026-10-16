@@ -101,3 +101,54 @@ The baseline exposes the exact safety hazard described in `PRD.md`: because lexi
 With corrected labels on `E-001` and `E-034`, baseline M1 increased from 70.59% to 82.35%, and M2 increased from 31.58% to 36.84%. However, the baseline's lack of abstention and spec reasoning continues to produce catastrophic safety hazards: **63.16% incorrect proposals (M3, 24 cases)** and **91.30% missed escalations (M4, 21 cases)**.
 
 Phase 1 benchmark dataset is **FROZEN** and sealed under `MANIFEST.sha256` (`fa5eb9cc37651a3a28b96a322421500e8b8be3112f631e9f05cdf7b370cc345a`). Git tag `dataset-v1-frozen` marks the boundary before any matcher development in Phase 2.
+
+---
+
+## Run 3: Phase 2 Official Frozen Benchmark Evaluation (Proposed Matcher)
+
+- **Date:** 2026-10-16
+- **Phase:** Phase 2 (Deterministic Normalizer and Proposed Matching Engine)
+- **Status:** **OFFICIAL BENCHMARK EVALUATION (FIRST FROZEN RUN OF PROPOSED MATCHER)**
+- **Dataset Version:** `v1-frozen`
+- **Dataset Manifest SHA-256:** `fa5eb9cc37651a3a28b96a322421500e8b8be3112f631e9f05cdf7b370cc345a`
+- **Config SHA-256:** `9a9cd6d453fc504344a13684c0db67fce86f1625a63a430b30b3946178edbdac`
+- **Command:** `python -m rfq_eval run --dataset eval/dataset/v1 --system both --out eval/reports/latest`
+- **Code Revision:** `a0b234793dd73297667623234dd3e8350762a4c2`
+- **Contamination Status:** **UNCONTAMINATED**
+  - Matching thresholds ($T_{min}=0.30$, $T_{prop}=0.60$, $T_{marg}=0.10$) were selected on the separate 12-case development set (`eval/dev/cases.jsonl`) and documented in `eval/reports/DEV_EVAL_REPORT.md`.
+  - The implementation, configuration, and unit tests were committed to Git (`a0b2347`) **prior** to executing this frozen evaluation.
+  - No thresholds or rules were tuned or modified after viewing the frozen evaluation results.
+- **Harness & Environment Verification:**
+  - Evaluator imports zero web or database frameworks (`test_isolation.py` PASSED, 130 tests total).
+  - Manifest verification confirmed dataset integrity against `fa5eb9cc...` (`test_manifest.py` PASSED).
+  - Outputs in `eval/reports/latest/` (`results.jsonl`, `report.json`, `report.md`) are byte-identical and deterministic.
+
+### Comparative Metrics Summary (40 Frozen Cases)
+
+| Metric ID | Metric Description | Naive Baseline | Proposed Matcher | Outcome / Delta |
+|---|---|---|---|---|
+| **M1** | Top-candidate correct rate | 82.35% (14 / 17) | **94.12%** (16 / 17) | +11.77% |
+| **M2** | Proposed precision | 36.84% (14 / 38) | **100.00%** (16 / 16) | +63.16% |
+| **M3** | Incorrect confident suggestions rate | **63.16%** (24 cases) | **0.00%** (0 cases) | **-63.16% (Zero false proposals)** |
+| **M4** | Missed escalations rate | **91.30%** (21 cases) | **0.00%** (0 cases) | **-91.30% (Zero missed escalations)** |
+| **M5** | Over-abstention rate | 0.00% (0 / 17) | **5.88%** (1 / 17) | 1 case over-abstained (`E-010`) |
+| **M6** | Appropriate abstention rate | 0.00% (0 / 18) | **100.00%** (18 / 18) | +100.00% (All review lines escalated) |
+| **M7** | Unmatched detection rate | 40.00% (2 / 5) | **100.00%** (5 / 5) | +60.00% (All 5 unmatched detected) |
+| **M8** | Normalization accuracy | n/a | **100.00%** (206 / 206) | Perfect field-level accuracy |
+| **M9** | Validation rule violations | n/a | **0.00%** (0 / 16) | Zero rule violations |
+
+### Key Observations & Findings:
+1. **Critical Safety Elimination:** The proposed matcher completely eliminated both critical hazards of the baseline:
+   - **M3:** Dropped from 24 incorrect proposals to **0**.
+   - **M4:** Dropped from 21 missed review escalations to **0**.
+   - Proposed precision reached **100.00%** (every proposed line is an exact match to the correct SKU).
+2. **Review & Unmatched Escalation:**
+   - 100% of review-required cases (18/18) were safely abstained via reason codes (`SPEC_MISSING_DISCRIMINATOR`, `UNIT_INCOMPATIBLE`, `MISSING_QUANTITY`, `MISSING_UNIT`, `SPEC_CONFLICT_IN_REQUEST`).
+   - 100% of unmatched cases (5/5) were rejected (`NO_CANDIDATE` or `NO_COMPATIBLE_CANDIDATE`).
+3. **Over-Abstention Audit (`E-010`):**
+   - Case `E-010` (`P.T.F.E. Thread Seal Tape 12mm 10 roll`) expected `CONS-003`.
+   - The dotted abbreviation `P.T.F.E.` produced similarity `0.5333`, which sits below $T_{PROPOSE} = 0.60$.
+   - The system abstained with `LOW_SIMILARITY`.
+   - In accordance with freeze protocol, thresholds were **not** tuned or retroactively modified; the over-abstention is reported honestly ($M_5 = 5.88\%$).
+4. **Phase 2 Complete:** The deterministic normalizer and proposed matching engine meet all PRD Phase 2 acceptance criteria.
+

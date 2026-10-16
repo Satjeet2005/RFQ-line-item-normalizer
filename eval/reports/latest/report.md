@@ -10,8 +10,8 @@
 
 - **Dataset Version:** `v1-frozen`
 - **Dataset Manifest SHA-256:** `fa5eb9cc37651a3a28b96a322421500e8b8be3112f631e9f05cdf7b370cc345a`
-- **Config SHA-256:** `3f37679f4bbbe576847bf25cbe35306b3f136d76bd7686a0911ab8bfec0be043`
-- **Code Revision:** `dataset-v1-frozen`
+- **Config SHA-256:** `9a9cd6d453fc504344a13684c0db67fce86f1625a63a430b30b3946178edbdac`
+- **Code Revision:** `88389cd1ac9d7f7f58d6771cdae3ead1f6688740`
 - **Command:** `python -m rfq_eval run --dataset eval/dataset/v1 --system both --out eval/reports/latest`
 - **Raw Results:** `results.jsonl`
 
@@ -48,6 +48,8 @@
 | `E-039` | `50 mtr GI Pipe 25mm Class B` | `review` | `null` | `proposed` | `PIPE-006` |
 | `E-040` | `MS Hex Bolt M12x50 Grade 4.6 12.5 nos` | `review` | `null` | `proposed` | `BOLT-007` |
 
+**Proposed Matcher observed 0 incorrect confident suggestions on this dataset.**
+
 ### B. Missed Escalations (M4)
 
 **Baseline observed 21 missed escalation(s) (proposing when review or unmatched was required):**
@@ -76,22 +78,24 @@
 | `E-039` | `50 mtr GI Pipe 25mm Class B` | `review` | `proposed` | `PIPE-006` |
 | `E-040` | `MS Hex Bolt M12x50 Grade 4.6 12.5 nos` | `review` | `proposed` | `BOLT-007` |
 
+**Proposed Matcher observed 0 missed escalations on this dataset.**
+
 ## 3. Benchmark Metrics Summary
 
 | Metric ID | Metric Description | Naive Baseline | Proposed Matcher |
 |---|---|---|---|
-| **M1** | Top-candidate correct rate | 82.35% (14/17) | *pending Phase 2* |
-| **M2** | Proposed precision | 36.84% (14/38) | *pending Phase 2* |
-| **M3** | Incorrect confident suggestions rate | 63.16% | *pending Phase 2* |
-| **M4** | Missed escalations rate | 91.30% | *pending Phase 2* |
-| **M5** | Over-abstention rate | 0.00% (0/17) | *pending Phase 2* |
-| **M6** | Appropriate abstention rate | 0.00% (0/18) | *pending Phase 2* |
-| **M7** | Unmatched detection rate | 40.00% (2/5) | *pending Phase 2* |
-| **M8** | Normalization accuracy | n/a (no normalizer in baseline) | *pending Phase 2* |
-| **M9** | Validation rule violations | n/a | *pending Phase 2* |
+| **M1** | Top-candidate correct rate | 82.35% (14/17) | 94.12% (16/17) |
+| **M2** | Proposed precision | 36.84% (14/38) | 100.00% (16/16) |
+| **M3** | Incorrect confident suggestions rate | 63.16% | 0.00% |
+| **M4** | Missed escalations rate | 91.30% | 0.00% |
+| **M5** | Over-abstention rate | 0.00% (0/17) | 5.88% (1/17) |
+| **M6** | Appropriate abstention rate | 0.00% (0/18) | 100.00% (18/18) |
+| **M7** | Unmatched detection rate | 40.00% (2/5) | 100.00% (5/5) |
+| **M8** | Normalization accuracy | n/a (no normalizer in baseline) | 100.00% (206/206) |
+| **M9** | Validation rule violations | n/a | 0.00% |
 
 ## 4. Proposed Matcher Status
 
 > [!NOTE]
-> Proposed matcher (domain/matcher.py) not implemented in Phase 1 per PRD freeze protocol. Implementation scheduled for Phase 2 after threshold tuning on dev set.
+> Proposed matcher (`domain/matcher.py`) and deterministic normalizer (`domain/normalizer.py`) evaluated under locked configuration `data/matching_config.json`.
 
