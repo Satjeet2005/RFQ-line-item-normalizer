@@ -5,7 +5,7 @@ RUN corepack enable
 
 FROM base AS deps
 WORKDIR /app
-COPY frontend/package.json frontend/pnpm-lock.yaml ./
+COPY frontend/package.json frontend/pnpm-lock.yaml frontend/pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 
 FROM base AS builder
