@@ -28,9 +28,37 @@ class Candidate:
     similarity: float
     disqualified: bool = False
     flags: List[str] = field(default_factory=list)
+    uom: Optional[str] = None
+    attributes: Dict[str, str] = field(default_factory=dict)
+
+@dataclass
+class Issue:
+    code: str
+    severity: str  # "blocking" | "info"
+    detail: str
+
+@dataclass
+class NormalizedLine:
+    description_raw: str
+    description_normalized: str
+    tokens: List[str]
+    spec: Dict[str, str]
+    quantity: Optional[Any] = None  # Decimal or None
+    unit: Optional[str] = None
+    unit_dimension: Optional[str] = None
+    issues: List[Issue] = field(default_factory=list)
+
+    @property
+    def issue_codes(self) -> List[str]:
+        return [i.code for i in self.issues]
+
+    @property
+    def has_blocking_issues(self) -> bool:
+        return any(i.severity == "blocking" for i in self.issues)
 
 @dataclass
 class MatchResult:
     system_outcome: str  # proposed, ambiguous, unmatched
     candidates: List[Candidate] = field(default_factory=list)
     reason_codes: List[str] = field(default_factory=list)
+

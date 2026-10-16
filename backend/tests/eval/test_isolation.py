@@ -9,6 +9,9 @@ def test_evaluator_imports_no_web_or_db():
     import domain.baseline
     import domain.split
     import domain.types
+    import domain.units
+    import domain.normalizer
+    import domain.matcher
     import rfq_eval.run
     import rfq_eval.metrics
     import rfq_eval.manifest

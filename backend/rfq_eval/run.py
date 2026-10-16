@@ -17,6 +17,8 @@ if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
 from domain.baseline import NaiveBaselineMatcher
+from domain.matcher import ProposedMatcher
+from domain.normalizer import normalize_line
 from domain.split import split_raw_line
 from rfq_eval.manifest import verify_manifest, compute_sha256
 from rfq_eval.metrics import compute_metrics
@@ -143,11 +145,59 @@ def run_evaluation(dataset_dir: Path, system: str, out_dir: Path, command_str: s
 
     baseline_metrics = compute_metrics(baseline_results, "baseline")
 
-    # 7. Proposed system placeholder (Phase 1)
+    catalog_map = {item["sku"]: item for item in catalog}
+
+    # 7. Proposed system evaluation
     proposed_metrics = {
         "status": "unavailable",
-        "note": "Proposed matcher (domain/matcher.py) not implemented in Phase 1 per PRD freeze protocol. Implementation scheduled for Phase 2 after threshold tuning on dev set."
+        "note": "Proposed matcher not executed for this run."
     }
+    if system in ("proposed", "both"):
+        with open(config_path, "r", encoding="utf-8") as f:
+            matching_cfg = json.load(f)
+        proposed_matcher = ProposedMatcher(catalog, matching_cfg)
+        proposed_results = []
+        for c in cases:
+            norm_line = normalize_line(c["input"])
+            match_res = proposed_matcher.match(norm_line)
+            top_cand = match_res.candidates[0] if match_res.candidates else None
+
+            act_normalized = {
+                "quantity": str(norm_line.quantity) if norm_line.quantity is not None else None,
+                "unit": norm_line.unit,
+                "spec": norm_line.spec,
+                "issue_codes": norm_line.issue_codes
+            }
+
+            rec = {
+                "id": c["id"],
+                "category": c["category"],
+                "input": c["input"],
+                "expected_outcome": c["expected_outcome"],
+                "expected_sku": c.get("expected_sku"),
+                "expected_normalized": c.get("expected_normalized"),
+                "actual_normalized": act_normalized,
+                "actual_outcome": match_res.system_outcome,
+                "actual_sku": top_cand.sku if top_cand else None,
+                "similarity": top_cand.similarity if top_cand else None,
+                "reason_codes": match_res.reason_codes
+            }
+            proposed_results.append(rec)
+
+            raw_results_records.append({
+                "case_id": c["id"],
+                "system": "proposed",
+                "input": c["input"],
+                "description_raw": norm_line.description_raw,
+                "expected_outcome": c["expected_outcome"],
+                "expected_sku": c.get("expected_sku"),
+                "system_outcome": match_res.system_outcome,
+                "top_sku": top_cand.sku if top_cand else None,
+                "similarity": top_cand.similarity if top_cand else None,
+                "reason_codes": match_res.reason_codes
+            })
+
+        proposed_metrics = compute_metrics(proposed_results, "proposed", catalog_map)
 
     all_second_pass = len(cases) > 0 and all(
         c.get("label_pass", {}).get("second_pass_done") is True for c in cases
