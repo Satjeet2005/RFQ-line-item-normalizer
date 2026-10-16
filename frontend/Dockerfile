@@ -12,7 +12,11 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY frontend ./
+
+ARG API_BASE_URL
+ENV API_BASE_URL=${API_BASE_URL}
 ENV NEXT_TELEMETRY_DISABLED=1
+
 RUN pnpm build
 
 FROM base AS runner
