@@ -33,6 +33,7 @@ test:
 lint:
 	$(RUFF) check backend/app
 	cd frontend && pnpm lint
+	cd frontend && pnpm type-check
 
 e2e:
 	PYTHONPATH=backend:. $(PYTEST) backend/tests/integration/test_golden_flow.py
