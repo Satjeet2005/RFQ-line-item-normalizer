@@ -1,0 +1,114 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend:
+    name: Backend Tests & Lint
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: satjeet
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: rfq_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install ruff
+
+      - name: Lint backend
+        run: ruff check backend/app
+
+      - name: Run backend tests
+        env:
+          DATABASE_URL: postgresql://satjeet:password@localhost:5432/rfq_test
+          PYTHONPATH: backend:.
+        run: pytest backend/tests
+
+  frontend:
+    name: Frontend Tests & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint frontend
+        working-directory: frontend
+        run: pnpm lint
+
+      - name: Test frontend (vitest + axe)
+        working-directory: frontend
+        run: pnpm test
+
+      - name: Build frontend
+        working-directory: frontend
+        run: pnpm build
+
+  eval:
+    name: Evaluation Determinism & Manifest Integrity
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify Manifest & Validate Dataset
+        run: |
+          python3 scripts/validate_dataset.py
+
+      - name: Run Evaluation Run 1
+        run: |
+          PYTHONHASHSEED=0 PYTHONPATH=backend python3 -m rfq_eval run --dataset eval/dataset/v1 --system both --out /tmp/eval_run1
+
+      - name: Run Evaluation Run 2
+        run: |
+          PYTHONHASHSEED=0 PYTHONPATH=backend python3 -m rfq_eval run --dataset eval/dataset/v1 --system both --out /tmp/eval_run2
+
+      - name: Verify Determinism (Byte-Identical Outputs)
+        run: |
+          diff /tmp/eval_run1/results.jsonl /tmp/eval_run2/results.jsonl
+          diff /tmp/eval_run1/report.json /tmp/eval_run2/report.json
+          diff /tmp/eval_run1/report.md /tmp/eval_run2/report.md
+          echo "Byte-identical reproducibility confirmed!"

@@ -1,0 +1,51 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: rfq-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-satjeet}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-satjeet}
+      POSTGRES_DB: ${POSTGRES_DB:-rfq_normalizer}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-satjeet} -d ${POSTGRES_DB:-rfq_normalizer}"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: rfq-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql://satjeet:satjeet@db:5432/rfq_normalizer}
+      API_BASE_URL: ${API_BASE_URL:-http://api:8000}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      GIT_SHA: ${GIT_SHA:-unknown}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: rfq-web
+    depends_on:
+      - api
+    environment:
+      API_BASE_URL: http://api:8000
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    restart: unless-stopped
+
+volumes:
+  db_data:

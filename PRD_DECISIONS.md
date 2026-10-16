@@ -217,7 +217,33 @@ Companion to `PRD.md`. Each entry: **Question · Why it matters · Default chose
   3. Formal inter-annotator reconciliation and documentation of all discrepancies in `LABEL_NOTES.md`.
   4. Full dataset validation, manifest integrity verification, test suite execution, or deterministic evaluation guarantees.
 - **Historical Record Preserved:** The original policy (D7) is preserved in history; this waiver is documented explicitly as an operational decision by project leadership.
-- **Resolve before implementation?** Yes (resolved for Phase 1 completion and freeze).
+### D34. Next.js App Router and API proxying architecture
+- **Why it matters:** PRD §N and Checklist U1-U7 require a clean, responsive 4-route UI interacting with the FastAPI persistence layer.
+- **Default:** Next.js 14 App Router in `frontend/` with server and client components, using `next.config.mjs` same-origin rewrites (`/api/:path*` -> `API_BASE_URL` or `http://localhost:8000`) to avoid cross-origin CORS issues in both local development and Docker Compose.
+- **Alternatives:** Direct browser calls to port 8000 with CORS wildcard; Next.js custom API routes wrapping FastAPI.
+- **Consequence if wrong:** CORS configuration leaks or complex cookie/header forwarding bugs.
+- **Resolve before implementation?** Yes (resolved for Phase 3).
+
+### D35. Optimistic concurrency control semantics
+- **Why it matters:** Multiple reviewers or browser tabs could attempt conflicting decisions on the same line item (Checklist P0 R4).
+- **Default:** Every decision request must supply `expected_version: int`. If `line_item.version != expected_version`, the API atomically rejects the request with HTTP 409 `STALE_VERSION`, returning the error details and the latest line item state in the response body. The frontend displays an alert with an instant "Reload latest" action to re-fetch the updated state without data loss.
+- **Alternatives:** Last-write-wins; pessimistic database row locking.
+- **Consequence if wrong:** Silent overwrite of reviewer decisions and corrupted audit history.
+- **Resolve before implementation?** Yes (resolved for Phase 3).
+
+### D36. Non-color-alone status indicator design
+- **Why it matters:** Checklist P1 U2 and accessibility requirements forbid conveying status by color alone.
+- **Default:** Every status badge combines: (1) an explicit text label, (2) a distinct Lucide SVG icon, and (3) a unique pill shape/border styling. In grayscale, high-contrast, or for screen readers, each status remains unambiguously distinguishable.
+- **Alternatives:** Colored dots or badges with color-only differentiation.
+- **Consequence if wrong:** Accessibility failure under WCAG 2.1 AA and checklist audit failure.
+- **Resolve before implementation?** Yes (resolved for Phase 3).
+
+### D37. Gated export and CSV security
+- **Why it matters:** Incomplete RFQs must not accidentally be exported as finalized quotes (Checklist P0 X2); CSV exports opened in spreadsheets must be immune to formula injection (Checklist P1 X4).
+- **Default:** CSV and JSON export endpoints require complete review by default, returning 409 `RFQ_INCOMPLETE` with pending line counts if any item is unreviewed. Exporters can explicitly pass `allow_incomplete=true` to export finalized lines only, in which case the API includes `X-Items-Excluded: <N>`. Furthermore, any string cell beginning with `= + - @` is neutralized by prepending `'` per RFC 4180 security recommendations.
+- **Alternatives:** Always export all lines; silently omit unreviewed lines without gating.
+- **Consequence if wrong:** Downstream procurement mistakes from unfinished reviews; spreadsheet formula execution exploits.
+- **Resolve before implementation?** Yes (resolved for Phase 3).
 
 ---
 
@@ -235,4 +261,5 @@ Companion to `PRD.md`. Each entry: **Question · Why it matters · Default chose
 
 ## F. Blockers
 
-None for starting Phase 1. The principal schedule risk is dataset realism and labelling time (Kill criterion 1).
+None. Phase 1, Phase 2, and Phase 3 are complete and verified against all P0/P1 checklist requirements.
+

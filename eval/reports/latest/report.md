@@ -11,7 +11,7 @@
 - **Dataset Version:** `v1-frozen`
 - **Dataset Manifest SHA-256:** `fa5eb9cc37651a3a28b96a322421500e8b8be3112f631e9f05cdf7b370cc345a`
 - **Config SHA-256:** `9a9cd6d453fc504344a13684c0db67fce86f1625a63a430b30b3946178edbdac`
-- **Code Revision:** `88389cd1ac9d7f7f58d6771cdae3ead1f6688740`
+- **Code Revision:** `f504ba0dc247c1bf0de1b84151bd3ef3daac7e45+dirty`
 - **Command:** `python -m rfq_eval run --dataset eval/dataset/v1 --system both --out eval/reports/latest`
 - **Raw Results:** `results.jsonl`
 

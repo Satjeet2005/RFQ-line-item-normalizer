@@ -5,4 +5,7 @@ __pycache__/
 .coverage
 htmlcov/
 timing.json
-
+.env
+.ruff_cache/
+node_modules/
+.next/
